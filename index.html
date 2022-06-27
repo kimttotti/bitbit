@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>Ttotti font</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
+        <style type="text/css">
+@font-face {
+    font-family: bitbit;
+    src: url('./비트비트BitBitRegular.ttf'), url('./비트비트BitBitRegular.woff'), url('./비트비트BitBitRegular.woff2');
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    background: #efefef;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    min-width: 100%;
+}
+
+#wrapper {
+    height: 100%;
+    max-width: 1200px;
+    min-width: 200px;
+    width: 100%;
+    box-sizing: border-box;
+
+    margin: 0 auto;
+    background: white;
+    padding: 1rem;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+        justify-content: stretch;
+}
+
+h1 {
+    font-family: bitbit;
+    font-size: 3rem;
+    font-weight: normal;
+    color: #999;
+        padding: 0;
+            display: block;
+                width: 100%;
+}
+
+h1 small {
+    font-size: 1.5rem;
+    color: #9cf;
+}
+
+#textarea {
+    font-family: bitbit;
+    display: block;
+    border: 1px solid #eee;
+        margin-top: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+        flex-grow: 1;
+            flex-shrink: 1;
+}
+
+    #tool {
+        width: 100%;
+        display: flex;
+            flex-direction: row;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    #fontSize {
+        height: 30px;
+        width: calc(100% - 6rem);
+            flex-shrink: 1;
+                flex-grow: 1;
+    }
+
+    #inFontSize {
+        width: 3rem;
+        height: 30px;
+        font-size: 24px;
+        border: none;
+        border-bottom: 1px solid #ddd;
+        margin-left: 2vw;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+
+
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>비트비트체<small>by 김또띠</small></h1>
+            <div id="tool">
+                <input type="range" id="fontSize" min="8" max="128" value="16" /> <input type="number" id="inFontSize" value="16" />
+            </div>
+            <textarea id="textarea">다람쥐 헌 쳇바퀴에 타고 파.</textarea>
+        </div>
+        <script type="text/javascript">
+const sizeSlider = document.querySelector('#fontSize');
+const inFontSize = document.querySelector('#inFontSize');
+const txt = document.querySelector('#textarea');
+
+function init() {
+    sizeSlider.addEventListener('input', (e) => {
+        changeFontSize(e.target.value);
+    });
+    inFontSize.addEventListener('input', (e) => {
+        changeFontSize(e.target.value);
+    });
+
+    const changeFontSize = (size) => {
+        console.log('change font size', size);
+        txt.style.fontSize = `${size}px`;
+        sizeSlider.value = size;
+        inFontSize.value = size;
+    }
+
+    changeFontSize(24);
+}
+
+init();
+        </script>
+    </body>
+</html>
